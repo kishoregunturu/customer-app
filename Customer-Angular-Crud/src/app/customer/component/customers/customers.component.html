@@ -3,7 +3,7 @@
   <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
 </div>
 <ng-container *ngIf="customers$ | async as customers">
-  <nav style="float:right">
+  <nav style="float: right">
     <span class="mr-4 my-4">Page Size:</span
     ><select
       name="selectAction"
@@ -14,7 +14,6 @@
       <option value="10" ng-reflect-value="10">10</option>
       <option value="25" ng-reflect-value="25">25</option>
       <option value="50" ng-reflect-value="50">50</option>
-    
     </select>
   </nav>
   <table class="table">
@@ -23,14 +22,18 @@
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Email</th>
+        <th scope="col">Created</th>
+        <th scope="col">Updated</th>
         <th scope="col">Operation</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cust of customers.data">
+      <tr *ngFor="let cust of customers.data" [ngClass]="{'bg-dark text-white':cust.id === activeId}">
         <td>{{ cust.firstName }}</td>
         <td>{{ cust.lastName }}</td>
         <td>{{ cust.email }}</td>
+        <td>{{ cust.createdOn | date : "short" }}</td>
+        <td>{{ cust.updatedOn | date : "short" }}</td>
         <td>
           <button
             (click)="showUpdateForm(cust)"

@@ -77,3 +77,6 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+Customer-Angular-Crud/node_modules/
+*.cmd
+*.ps1

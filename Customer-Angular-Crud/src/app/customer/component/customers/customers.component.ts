@@ -20,7 +20,8 @@ export class CustomersComponent implements OnInit, OnDestroy {
   customerState?: CustomerState;
   perPage = 10;
   customers$?: Observable<PaginationResponse<any>>;
-  pages = [10,25,50];
+  pages = [10, 25, 50];
+  activeId?:string;
 
   constructor(
     @Inject(CUSTOMER_PAGINATOR) public paginatorRef: PaginatorPlugin<Customer>,
@@ -30,31 +31,31 @@ export class CustomersComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-   this.selectCustomer();
-    
+    this.selectCustomer();
+    this.activeId = this.customerQuery.getActiveId();
   }
 
-  selectCustomer(){
+  selectCustomer() {
     //clear cache
     this.paginatorRef.clearCache();
     this.customers$ = this.paginatorRef.pageChanges.pipe(
       untilDestroyed(this),
       switchMap((page) => {
-        const requestFn = () => this.customerService.getAllCustomers({
-          page,
-          perPage: this.perPage
-        });
-    
+        const requestFn = () =>
+          this.customerService.getAllCustomers({
+            page,
+            perPage: this.perPage,
+          });
+
         return this.paginatorRef.getPage(requestFn);
       })
     );
   }
 
   deleteCustomer(CustomerId: string) {
-   this.customerService
-      .deleteCustomer(CustomerId).pipe(
-        untilDestroyed(this)
-      )
+    this.customerService
+      .deleteCustomer(CustomerId)
+      .pipe(untilDestroyed(this))
       .subscribe((result) => {
         console.log(result);
       });
@@ -64,7 +65,6 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.customerQuery.setActive(customer);
     this.router.navigateByUrl(`/customer/${customer?.id}`);
   }
-
 
   ngOnDestroy() {
     this.paginatorRef.clearCache();
