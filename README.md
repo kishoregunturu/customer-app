@@ -39,4 +39,23 @@ The .net Core API has the following requirements:
  Make sure the baseUrl is updated in Angular applicaiton.
  
  Run the angular using the following :
+ - npm install
+ - update environment.ts to update api urlk
+ - ng serve
+ 
+ ![image](https://user-images.githubusercontent.com/8276312/229309948-82cf311c-5962-46b4-a62b-cf1832adc27c.png)
+ 
+ - Create to create a new customer
+ ![image](https://user-images.githubusercontent.com/8276312/229309968-1459566e-b82f-4ec3-9b2e-1bc5853d44ef.png)
+ 
+ - Update existing customer
+ 
+ ![image](https://user-images.githubusercontent.com/8276312/229309999-c543b9b5-44fe-4ef4-9a24-f9eca1d85b4a.png)
+ 
+ - Last Active customer
+ ![image](https://user-images.githubusercontent.com/8276312/229310382-dc1335b1-7e5b-4932-9788-7c6907d9e41c.png)
+
+
+
+
   
