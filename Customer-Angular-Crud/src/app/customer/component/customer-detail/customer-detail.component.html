@@ -1,0 +1,94 @@
+<form (ngSubmit)="onSubmit(createForm)" #createForm="ngForm">
+  <ng-container *ngIf="!customer">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        class="form-control"
+        ngModel
+        required
+       
+      />
+    </div>
+    <div class="form-group">
+      <label for="side">Last Name</label>
+      <input
+        *ngIf="!customer"
+        type="text"
+        id="lastName"
+        name="lastName"
+        class="form-control"
+        required
+        ngModel
+       
+      />
+    </div>
+    <div class="form-group">
+      <label for="side">Email</label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        class="form-control"
+        ngModel
+        required
+       
+      />
+    </div>
+  </ng-container>
+  <ng-container *ngIf="customer">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        class="form-control"
+        [(ngModel)]="customer.firstName"
+        required
+       
+      />
+    </div>
+    <div class="form-group">
+      <label for="side">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        class="form-control"
+        required
+        [(ngModel)]="customer.lastName"
+       
+      />
+    </div>
+    <div class="form-group">
+      <label for="side">Email</label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        class="form-control"
+        [(ngModel)]="customer.email"
+        required
+       
+      />
+    </div>
+  </ng-container>
+  <ng-container *ngIf="errors && errors.length > 0">
+    <div class="my-4 warning alert alert-danger" >
+      <ul *ngFor="let error of errors">
+        <li>{{ error }}</li>
+      </ul>
+    </div>
+  </ng-container>
+ 
+  <button
+    [disabled]="createForm.invalid"
+    class="btn btn-primary my-4"
+    type="submit"
+  >
+    Save
+  </button>
+</form>

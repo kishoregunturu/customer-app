@@ -1,0 +1,102 @@
+<div class="d-flex align-items-center" *ngIf="paginatorRef.isLoading$ | async">
+  <strong>Loading...</strong>
+  <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+</div>
+<ng-container *ngIf="customers$ | async as customers">
+  <nav style="float:right">
+    <span class="mr-4 my-4">Page Size:</span
+    ><select
+      name="selectAction"
+      class="mx-4 p-2 w-15"
+      [(ngModel)]="perPage"
+      (change)="selectCustomer()"
+    >
+      <option value="10" ng-reflect-value="10">10</option>
+      <option value="25" ng-reflect-value="25">25</option>
+      <option value="50" ng-reflect-value="50">50</option>
+    
+    </select>
+  </nav>
+  <table class="table">
+    <thead class="thead thead-dark">
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cust of customers.data">
+        <td>{{ cust.firstName }}</td>
+        <td>{{ cust.lastName }}</td>
+        <td>{{ cust.email }}</td>
+        <td>
+          <button
+            (click)="showUpdateForm(cust)"
+            class="btn btn-primary"
+            style="margin: 5px"
+          >
+            Update
+          </button>
+          <button
+            (click)="deleteCustomer(cust.id)"
+            class="btn btn-danger"
+            style="margin: 5px"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination float-left" style="float: left">
+      <li
+        role="button"
+        class="page-item page-link"
+        [class.disabled]="paginatorRef.isFirst"
+        (click)="paginatorRef.setFirstPage()"
+      >
+        First page
+      </li>
+
+      <li
+        role="button"
+        class="page-item page-link"
+        [class.disabled]="paginatorRef.isFirst"
+        (click)="paginatorRef.prevPage()"
+      >
+        Prev
+      </li>
+
+      <li
+        role="button"
+        class="page-item page-link"
+        *ngFor="let page of customers.pageControls"
+        (click)="paginatorRef.setPage(page)"
+        [class.active]="paginatorRef.isPageActive(page)"
+      >
+        {{ page }}
+      </li>
+
+      <li
+        role="button"
+        class="page-item page-link"
+        [class.disabled]="paginatorRef.isLast"
+        (click)="paginatorRef.nextPage()"
+      >
+        Next
+      </li>
+
+      <li
+        role="button"
+        class="page-item page-link"
+        [class.disabled]="paginatorRef.isLast"
+        (click)="paginatorRef.setLastPage()"
+      >
+        Last
+      </li>
+    </ul>
+  </nav>
+</ng-container>
