@@ -2,6 +2,7 @@
 using CustomerAPI.Core.Entities;
 using CustomerAPI.Core.Model;
 using CustomerAPI.Core.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,6 +10,7 @@ namespace CustomerAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class CustomerController : ControllerBase
     {
 

@@ -1,5 +1,5 @@
 <div class="p-4">
-  <div>
+  <ng-container *ngIf="loggedIn$ | async">
     <ul class="nav nav-pills">
       <li class="nav-item">
         <a class="nav-link" routerLink="courses" routerLinkActive="active"
@@ -11,8 +11,18 @@
           >Create Course</a
         >
       </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="login" (click)="logout()">
+          Log Out
+        </a>
+      </li>
     </ul>
-  </div>
+   
+  </ng-container>
+
+ 
+    
+
 
   <div style="margin-top: 20px">
     <router-outlet></router-outlet>

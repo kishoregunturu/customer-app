@@ -9,7 +9,7 @@ namespace ConsumerAPI.Test
     [TestClass]
     public class CustomerRespositoryTest
     {
-        private CustomerRepository customerRepository { get; set; }
+        private CustomerRepository? customerRepository { get; set; }
 
         [TestInitialize]
         public void Init()
