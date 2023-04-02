@@ -6,24 +6,22 @@ import { SessionQuery } from './session/store/session.query';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-
-  
   title = 'customer crud';
   loggedIn$: Observable<boolean>;
 
-	constructor(private authService: SessionService, private authQuery: SessionQuery) {
+  constructor(
+    private authService: SessionService,
+    private authQuery: SessionQuery
+  ) {
     this.loggedIn$ = this.authQuery.isLoggedIn$;
   }
 
-	ngOnInit() {
-		
-	}
+  ngOnInit() {}
 
-	logout() {
-		this.authService.logout();
-	}
-  
+  logout() {
+    this.authService.logout();
+  }
 }

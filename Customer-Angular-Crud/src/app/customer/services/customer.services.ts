@@ -27,27 +27,34 @@ export class CustomerService {
     this.headers = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
-      .set('Authorization',`Bearer ${sessionQuery.token()}`);
+      .set('Authorization', `Bearer ${sessionQuery.token()}`);
   }
 
   getAllCustomers(page: any): Observable<PaginationResponse<Customer>> {
     return this.http.post<PaginationResponse<Customer>>(
       `${environment.apiUrl}/customer/all`,
-      page,{headers:this.headers}
+      page,
+      { headers: this.headers }
     );
   }
 
   getCustomer(id: string): Observable<Customer> {
-    return this.http.get<Customer>(`${environment.apiUrl}/customer/${id}`,{headers:this.headers}).pipe(
-      tap((customer) => {
-        this.store.setActive(customer?.id);
+    return this.http
+      .get<Customer>(`${environment.apiUrl}/customer/${id}`, {
+        headers: this.headers,
       })
-    );
+      .pipe(
+        tap((customer) => {
+          this.store.setActive(customer?.id);
+        })
+      );
   }
 
   createCustomer(customer: Customer): Observable<any> {
     return this.http
-      .post<Customer>(`${environment.apiUrl}/customer`, customer,{headers:this.headers})
+      .post<Customer>(`${environment.apiUrl}/customer`, customer, {
+        headers: this.headers,
+      })
       .pipe(
         tap((value) => {
           this.store.add([value]);
@@ -57,7 +64,9 @@ export class CustomerService {
 
   deleteCustomer(customerId: string): Observable<any> {
     return this.http
-      .delete(`${environment.apiUrl}/customer/` + customerId,{headers:this.headers})
+      .delete(`${environment.apiUrl}/customer/` + customerId, {
+        headers: this.headers,
+      })
       .pipe(
         tap((result) => {
           this.store.remove(customerId);
@@ -66,10 +75,14 @@ export class CustomerService {
   }
 
   updateCustomer(customerId: string, customer: Customer): Observable<any> {
-    return this.http.put(`${environment.apiUrl}/customer`, customer,{headers:this.headers}).pipe(
-      tap((result) => {
-        this.store.update(customerId, customer);
+    return this.http
+      .put(`${environment.apiUrl}/customer`, customer, {
+        headers: this.headers,
       })
-    );
+      .pipe(
+        tap((result) => {
+          this.store.update(customerId, customer);
+        })
+      );
   }
 }

@@ -21,7 +21,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
   perPage = 10;
   customers$?: Observable<PaginationResponse<any>>;
   pages = [10, 25, 50];
-  activeId?:string;
+  activeId?: string;
 
   constructor(
     @Inject(CUSTOMER_PAGINATOR) public paginatorRef: PaginatorPlugin<Customer>,

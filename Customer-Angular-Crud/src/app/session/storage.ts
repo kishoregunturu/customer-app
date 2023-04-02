@@ -5,7 +5,7 @@ export function getSession() {
   return session ? JSON.parse(session) : {};
 }
 
-export function saveSession( session:any ) {
+export function saveSession(session: any) {
   localStorage.setItem(SESSION_KEY, JSON.stringify(session));
 }
 

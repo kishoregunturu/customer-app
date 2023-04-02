@@ -3,25 +3,25 @@ import { Query, toBoolean } from '@datorama/akita';
 import { SessionStore, SessionState } from './session.store';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionQuery extends Query<SessionState> {
-	isLoggedIn$ = this.select((state) => toBoolean(state.token));
-	userId$ = this.select((state) => state.userId);
+  isLoggedIn$ = this.select((state) => toBoolean(state.token));
+  userId$ = this.select((state) => state.userId);
 
-	constructor(store: SessionStore) {
-		super(store);
-	}
+  constructor(store: SessionStore) {
+    super(store);
+  }
 
-	isLoggedIn() {
-		return toBoolean(this.store.getValue().token);
-	}
+  isLoggedIn() {
+    return toBoolean(this.store.getValue().token);
+  }
 
-    userId() {
-		return this.store.getValue().userId;
-	}
+  userId() {
+    return this.store.getValue().userId;
+  }
 
-    token() {
-		return this.store.getValue().token;
-	}
+  token() {
+    return this.store.getValue().token;
+  }
 }

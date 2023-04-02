@@ -8,5 +8,5 @@ export const CUSTOMER_PAGINATOR = new InjectionToken('CUSTOMER_PAGINATOR', {
   factory: () => {
     const customerQuery = inject(CustomerQuery);
     return new PaginatorPlugin(customerQuery).withControls().withRange();
-  }
+  },
 });

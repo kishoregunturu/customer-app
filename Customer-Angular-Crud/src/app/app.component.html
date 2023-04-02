@@ -2,7 +2,7 @@
   <ng-container *ngIf="loggedIn$ | async">
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link" routerLink="courses" routerLinkActive="active"
+        <a class="nav-link" routerLink="customers" routerLinkActive="active"
           >List Courses</a
         >
       </li>
@@ -12,17 +12,10 @@
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link"  routerLink="login" (click)="logout()">
-          Log Out
-        </a>
+        <a class="nav-link" routerLink="login" (click)="logout()"> Log Out </a>
       </li>
     </ul>
-   
   </ng-container>
-
- 
-    
-
 
   <div style="margin-top: 20px">
     <router-outlet></router-outlet>

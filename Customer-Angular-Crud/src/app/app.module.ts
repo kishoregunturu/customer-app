@@ -9,7 +9,7 @@ import { CustomersComponent } from './customer/component/customers/customers.com
 import { CustomerModule } from './customer/customer.module';
 import { LoginComponent } from './session/login/login.component';
 import { AuthGuard } from './session/session.auth';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes = [
   {
@@ -36,10 +36,16 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent,LoginComponent],
-  imports: [BrowserModule, CustomerModule,FormsModule,ReactiveFormsModule, RouterModule.forRoot(routes)],
+  declarations: [AppComponent, LoginComponent],
+  imports: [
+    BrowserModule,
+    CustomerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+  ],
   providers: [],
- 
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

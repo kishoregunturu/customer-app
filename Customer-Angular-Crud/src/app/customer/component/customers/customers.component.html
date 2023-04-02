@@ -28,7 +28,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cust of customers.data" [ngClass]="{'bg-dark text-white':cust.id === activeId}">
+      <tr
+        *ngFor="let cust of customers.data"
+        [ngClass]="{ 'bg-dark text-white': cust.id === activeId }"
+      >
         <td>{{ cust.firstName }}</td>
         <td>{{ cust.lastName }}</td>
         <td>{{ cust.email }}</td>
