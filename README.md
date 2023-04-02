@@ -7,17 +7,17 @@
 The Project highlights the following under Angular:
   - Crud for Customer 
   - Paging and Caching for Customer
-  - Lazy Laoding of the grid 
+  - Lazy Loading of the grid 
   - Akita State management for State management
   - Customer module for plug and play
-  - Authorization and session
+  - Login and session
   - JWT Authorization integration for .Net Core
   
 For angular project to work, update the environment.ts file for the environment.
 ```
-export const environment = {<br>
-    production: false,<br>
-   apiUrl: 'https://localhost:7071'<br>
+export const environment = {<
+    production: false,
+   apiUrl: 'https://localhost:7071'
 };
 ```
 
@@ -27,7 +27,7 @@ The .net Core API has the following requirements:
 - Visual Studio 2022
 - .Net Core 6.0
 - Sql Lite
-  -- Copy the SqlLite from C:\repos\customer-app\Customer.API\Customer.API\Data\Customers.db into your local folder
+  -- Copy the SqlLite from \customer-app\Customer.API\Customer.API\Data\Customers.db into your local folder
   -- Update the appsettings.json to folder
   ```
   "ConnectionStrings": {
