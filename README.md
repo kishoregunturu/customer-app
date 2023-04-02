@@ -10,6 +10,8 @@ The Project highlights the following under Angular:
   - Lazy Laoding of the grid 
   - Akita State management for State management
   - Customer module for plug and play
+  - Authorization and session
+  - JWT Authorization integration for .Net Core
   
 For angular project to work, update the environment.ts file for the environment.
 ```
@@ -43,17 +45,25 @@ The .net Core API has the following requirements:
  - update environment.ts to update api urlk
  - ng serve
  
- ![image](https://user-images.githubusercontent.com/8276312/229309948-82cf311c-5962-46b4-a62b-cf1832adc27c.png)
+ - login 
+ 
+ ![image](https://user-images.githubusercontent.com/8276312/229323727-862c19e7-f5fb-4d09-8765-8f93f00bc88a.png)
+- Home page
+
+ ![image](https://user-images.githubusercontent.com/8276312/229323752-bf15538f-0fa0-486b-8983-92413a75ec9a.png)
+
  
  - Create to create a new customer
- ![image](https://user-images.githubusercontent.com/8276312/229309968-1459566e-b82f-4ec3-9b2e-1bc5853d44ef.png)
+ 
+ ![image](https://user-images.githubusercontent.com/8276312/229323764-8cdfc7cb-1235-4b14-8a0c-c86d069d6554.png)
  
  - Update existing customer
  
- ![image](https://user-images.githubusercontent.com/8276312/229309999-c543b9b5-44fe-4ef4-9a24-f9eca1d85b4a.png)
+ ![image](https://user-images.githubusercontent.com/8276312/229323798-19a3f15c-e2f4-4bd6-a752-f3f961409861.png)
  
  - Last Active customer
- ![image](https://user-images.githubusercontent.com/8276312/229310382-dc1335b1-7e5b-4932-9788-7c6907d9e41c.png)
+ 
+ ![image](https://user-images.githubusercontent.com/8276312/229323815-24445247-5cb5-451e-9dd1-4621ff961508.png)
 
 
 
